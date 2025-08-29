@@ -40,7 +40,7 @@ export function HeroSection() {
                 </span>
               </h1>
 
-              <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed pt-[15px] pb-[15px]">
                 I design and ship reliable, performant web apps end-to-end—from crisp UIs to robust APIs—using React/Angular, FastAPI/.NET, and AWS.
               </p>
             </div>
