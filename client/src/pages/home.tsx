@@ -53,7 +53,7 @@ export default function Home() {
                 <Mail className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/mukul-sachdeva1997"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 aria-label="LinkedIn"
                 data-testid="link-footer-linkedin"
@@ -63,7 +63,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://github.com/mukulsachdeva1997"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 aria-label="GitHub"
                 data-testid="link-footer-github"
