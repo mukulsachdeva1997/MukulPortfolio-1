@@ -63,9 +63,10 @@ export function InterestsSection() {
           </p>
         </div>
 
-        <Card className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
-          <CardContent className="p-0">
-            <div className="relative">
+        <div className="max-w-4xl mx-auto">
+          <Card className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
+            <CardContent className="p-0">
+              <div className="relative">
               {/* Main Carousel Image */}
               <div className="relative h-64 lg:h-80 overflow-hidden">
                 <img
@@ -150,9 +151,10 @@ export function InterestsSection() {
                   />
                 ))}
               </div>
-            </div>
-          </CardContent>
-        </Card>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
 
         {/* Auto-play indicator */}
         <div className="text-center mt-6">
