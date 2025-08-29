@@ -63,12 +63,12 @@ export function InterestsSection() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <Card className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden">
             <CardContent className="p-0">
               <div className="relative">
               {/* Main Carousel Image */}
-              <div className="relative h-64 lg:h-80 overflow-hidden">
+              <div className="relative h-96 lg:h-[500px] overflow-hidden">
                 <img
                   src={interestImages[currentIndex].image}
                   alt={interestImages[currentIndex].title}
