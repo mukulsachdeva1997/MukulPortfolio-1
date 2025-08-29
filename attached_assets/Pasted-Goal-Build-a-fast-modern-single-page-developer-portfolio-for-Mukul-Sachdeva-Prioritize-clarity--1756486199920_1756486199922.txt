@@ -1,0 +1,90 @@
+Goal: Build a fast, modern, single-page developer portfolio for Mukul Sachdeva. Prioritize clarity, credibility, and recruitability. Mobile-first, responsive, accessible (WCAG AA), light/dark mode.
+
+Look & Feel
+	•	Style: Minimal, professional, developer-centric. Subtle depth (soft shadows, 2xl rounded corners), generous white space, grid layout.
+	•	Palette:
+	•	Light: Background #0B1020 on dark mode / #FAFAFC on light; Accents #5B8CFF (primary), #00C2A8 (secondary).
+	•	Text: High contrast; never pure black—use #111 on light, #EDEFF6 on dark.
+	•	Typography: Headings = Inter/SF Pro/Geist Sans, Body = Inter/Source Sans.
+	•	Motion: Tiny micro-animations on hover (links, buttons, cards). Reduce motion if user prefers.
+
+Page Structure (one page + anchor nav)
+	1.	Hero (above the fold)
+	•	Name, role, quick value proposition, 2–3 tech highlights, strong CTA buttons.
+	•	Content:
+	•	Name: Mukul Sachdeva.
+	•	Title: Full-Stack Developer (React/Angular • FastAPI/.NET • AWS).
+	•	One-liner: “I design and ship reliable, performant web apps end-to-end—from crisp UIs to robust APIs—using React/Angular, FastAPI/.NET, and AWS.”
+	•	CTAs: View Projects, Download CV, Contact.
+	•	Contact chips: Email, phone, location. Use icons. Email: mukulsachdeva1997@gmail.com; Phone: +49 176 8240 7998; Location: Paderborn, Germany.  ￼
+	2.	Projects (prime section)
+	•	3 feature cards with problem → solution → impact. Each card has: title, stack, short description, 3 bullet highlights, links (Live/Repo if available), and a “What I owned” tag.
+	•	Cards & Copy:
+	•	Custom Shopify E-commerce Integration (DailiQ) — Next.js (React), FastAPI, Shopify Storefront API, AWS Amplify.
+	•	Highlights:
+	•	Built a custom middleware in FastAPI to validate input and proxy GraphQL queries to Shopify.
+	•	Seamless dynamic + static routing in Next.js with Axios data fetching, Tailwind UI.
+	•	Outcome: Faster integrations and clearer separation of concerns across FE ↔ middleware ↔ Shopify.  ￼
+	•	IQVIA Custom Feature Development — C#, .NET, React.
+	•	Highlights:
+	•	Designed REST endpoints in .NET to integrate new data features into a healthcare analytics platform.
+	•	Improved React UX and data visualization for quicker insights.
+	•	Outcome: Smoother FE–BE communication and lower response times.  ￼
+	•	PriOSS – Privacy One-Stop Shop — Angular, TypeScript, Python; GDPR-by-design.
+	•	Highlights:
+	•	Local-device processing; enhanced visualization and granular user data control.
+	•	Transparent UX for managing data from multiple online services.
+	•	Outcome: Privacy-first product concept aligned to GDPR principles.  ￼
+	•	Add small “Tech Tags” row per card (e.g., React • FastAPI • GraphQL • AWS Amplify).
+	3.	Experience
+	•	Timeline cards; emphasize outcomes, stacks, and collaboration.
+	•	Lasken GmbH — Full-Stack Developer (Dec 20, 2024 – May 15, 2025)
+	•	React/Angular front-ends with performance tuning and responsive UI/UX.
+	•	Custom APIs in Python (Flask) and C# (.NET) with MySQL.
+	•	Cross-functional work with GitHub, Docker, AWS; focus on secure, reliable delivery.  ￼
+	•	Industrial Training — Data Science (Jun 18, 2019 – Dec 12, 2019)
+	•	Built predictive disease diagnosis models in Python; early detection from symptoms.  ￼
+	•	Industrial Training — Web Development (Jun 1, 2018 – Jul 20, 2018)
+	•	Full website (menu + online ordering) using HTML/CSS/JS/Bootstrap + PHP/MySQL/JSON.  ￼
+	4.	Skills (grouped, scannable)
+	•	Languages: JavaScript, Python, PHP, C/C++, Java, C# (.NET), JSON.
+	•	Web & Frameworks: React, Angular, HTML/CSS, jQuery, Bootstrap, Flask (intermediate), FastAPI.
+	•	Databases: MySQL (plus XML familiarity).
+	•	Cloud & DevOps: AWS, Linux, Docker, GitHub Actions (CI/CD), Microsoft Office.
+	•	Show as pill tags + proficiency dots (no subjective levels; use experience context in tooltips).  ￼
+	5.	Education
+	•	M.Sc. Computer Science — Universität Paderborn (Apr 2022 – Present)
+	•	Seminar highlights:
+	•	“Novel Approaches of Requirements Elicitation, Reuse and Evolution”
+	•	“Advancements in Parallelising Static Program Analyses: A Comprehensive Overview”  ￼
+	•	B.Tech Computer Science — GNDEC, Ludhiana (Aug 2016 – Apr 2020, Final grade: 2.34)
+	•	Major: Profanity Spotting; Minors: Disease Prediction System, Restaurant Management System.  ￼
+	6.	About
+	•	Short bio focusing on strengths: front-end craft + API design + data/API integrations + privacy-aware thinking.
+	•	Add a personable line: fitness, trekking, sketching (as interests).  ￼
+	7.	Languages
+	•	English: C1 across listening, reading, writing, speaking.
+	•	German: A2 across modalities. Use small flags/icons but keep text accessible.  ￼
+	8.	Volunteering
+	•	Social work (2017–2022): Led blood-donation camps; organized sanitary workshops for children. Keep this concise and empathetic.  ￼
+	9.	Contact / CTA Footer
+	•	Buttons: Email, Copy Email, Copy Phone, Download CV (PDF).
+	•	Also show a simple contact form (name, email, message) with spam-safe honeypot.
+
+Global UX Requirements
+	•	Navigation: Sticky top nav with anchors (Projects, Experience, Skills, Education, About, Contact). Active link highlights section in view.
+	•	Dark Mode: Respect prefers-color-scheme.
+	•	Accessibility: Semantic HTML, proper landmarks, alt text, focus styles, color-contrast AA+, skip-to-content link.
+	•	Performance: Lazy-load images, optimize font loading, minify assets. Aim Lighthouse ≥ 95.
+
+Copywriting Tone
+	•	Confident, concrete, and concise. Start bullets with strong verbs; quantify impact when possible. Avoid fluff. No “I’m passionate” unless tied to evidence.
+
+Optional Extras
+	•	Resume Download: Link a fresh PDF.
+	•	SEO: Title “Mukul Sachdeva — Full-Stack Developer”; meta description; Open Graph image; schema.org/Person + schema.org/SoftwareSourceCode for projects.
+	•	Analytics: Privacy-friendly (e.g., Plausible).
+	•	Badges: Small, tasteful stack badges on project cards.
+
+Data to Use (insert literally)
+	•	Name: Mukul Sachdeva. Nationality: Indian. DOB: 08/06/1997 (optional; don’t display by default). Location: Paderborn, Germany. Email: mukulsachdeva1997@gmail.com. Phone: +49 176 8240 7998. Address (optional): Uhlandstraße 58, 33100 Paderborn.  
