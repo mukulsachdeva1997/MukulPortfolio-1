@@ -75,7 +75,7 @@ export function InterestsSection() {
                   className="w-full h-full object-cover transition-opacity duration-500"
                   data-testid={`img-interest-${currentIndex}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pl-[0px] pr-[0px] ml-[70px] mr-[70px]" />
                 
                 {/* Content Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
