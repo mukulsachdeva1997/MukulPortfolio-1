@@ -5,6 +5,7 @@ import { ProjectsSection } from "@/components/projects-section";
 import { SkillsSection } from "@/components/skills-section";
 import { EducationSection } from "@/components/education-section";
 import { AboutSection } from "@/components/about-section";
+import { InterestsSection } from "@/components/interests-section";
 import { ContactSection } from "@/components/contact-section";
 import { Mail } from "lucide-react";
 
@@ -31,6 +32,7 @@ export default function Home() {
         <SkillsSection />
         <EducationSection />
         <AboutSection />
+        <InterestsSection />
         <ContactSection />
       </main>
       
