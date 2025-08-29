@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
+import { Typewriter } from "react-simple-typewriter";
 
 export function HeroSection() {
   const handleScrollToSection = (sectionId: string) => {
@@ -34,9 +35,25 @@ export function HeroSection() {
             {/* Main heading */}
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold">
-                Hello
+                Mukul Sachdeva
                 <span className="block text-2xl lg:text-3xl font-normal text-muted-foreground mt-2">
-                  — It's Mukul, a full-stack developer
+                  —{" "}
+                  <Typewriter
+                    words={[
+                      "Full-Stack Developer",
+                      "Frontend Engineer (React & Angular)",
+                      "Backend Developer (FastAPI / .NET)",
+                      "Cloud & API Integration Specialist",
+                      "Scalable Web Application Engineer",
+                      "Data-Driven Solution Builder",
+                    ]}
+                    loop={true}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={80}
+                    deleteSpeed={50}
+                    delaySpeed={2000} // stay on each word for ~2 seconds
+                  />
                 </span>
               </h1>
 
@@ -84,7 +101,7 @@ export function HeroSection() {
                 className="px-8 py-3 rounded-lg font-medium"
                 data-testid="button-download-cv"
               >
-                <a href="/mukul-sachdeva-cv.pdf" download>
+                <a href="https://mukulr.edgeone.app/Mukul_Sachdeva_CV%20copy.pdf" download>
                   Download CV
                 </a>
               </Button>
@@ -108,7 +125,7 @@ export function HeroSection() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800"
+                src="https://mukul.edgeone.app/Screenshot%202025-08-29%20at%2021.32.19.png"
                 alt="Mukul Sachdeva - Full-Stack Developer"
                 className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-2xl shadow-2xl animate-float"
                 data-testid="img-profile"

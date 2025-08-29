@@ -7,28 +7,23 @@ import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
 const interestImages = [
   {
     id: 1,
-    title: "Fitness & Training",
-    description: "Staying active through regular workouts and strength training",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    title: "Mountain Trekking",
+    description: "Exploring nature trails and mountain paths",
+    image: "https://mukuli.edgeone.app/Screenshot%202025-08-29%20at%2022.33.59.png"
   },
   {
     id: 2,
-    title: "Mountain Trekking",
-    description: "Exploring nature trails and mountain paths",
-    image: "https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    title: "Fitness & Training",
+    description: "Staying active through regular workouts and strength training",
+    image: "https://written-amethyst-e9mw61snwq.edgeone.app/Screenshot%202025-08-29%20at%2022.44.02.png"
   },
+  
   {
     id: 3,
     title: "Sketching & Art",
     description: "Creating artistic sketches and drawings in spare time",
-    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    image: "https://unchanged-red-rh67hckppp.edgeone.app/Screenshot%202025-08-29%20at%2022.54.16.png"
   },
-  {
-    id: 4,
-    title: "Technology Exploration",
-    description: "Experimenting with new frameworks and development tools",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-  }
 ];
 
 export function InterestsSection() {
@@ -75,7 +70,7 @@ export function InterestsSection() {
                   className="w-full h-full object-cover transition-opacity duration-500"
                   data-testid={`img-interest-${currentIndex}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pl-[0px] pr-[0px] ml-[70px] mr-[70px]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pl-[0px] pr-[0px]" />
                 
                 {/* Content Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">

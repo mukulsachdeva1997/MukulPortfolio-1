@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Copy, Download, Send } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
+import emailjs from "@emailjs/browser";
 
 interface ContactFormData {
   name: string;
@@ -25,10 +25,30 @@ export function ContactSection() {
     website: "",
   });
 
-  const contactMutation = useMutation({
+    const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("Missing VITE_EMAILJS_* env vars. Check .env / Replit Secrets and restart the dev server.");
+      }
+
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+      };
+
+      try {
+        const res = await emailjs.send(serviceId, templateId, templateParams, { publicKey });
+        console.log("EmailJS response:", res);
+        return res;
+      } catch (err) {
+        console.error("EmailJS send error:", err);
+        throw err; // will be caught by onError
+      }
     },
     onSuccess: () => {
       toast({
@@ -37,10 +57,16 @@ export function ContactSection() {
       });
       setFormData({ name: "", email: "", message: "", website: "" });
     },
-    onError: (error) => {
+    onError: (error: any) => {
+      console.error("EmailJS error (onError):", error);
+
+      let description = "Failed to send message. Please try again.";
+      if (error?.text) description = error.text;
+      if (error?.message) description = error.message;
+
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description,
         variant: "destructive",
       });
     },
@@ -48,12 +74,10 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Check honeypot field for spam protection
-    if (formData.website) {
-      return; // Likely spam, do nothing
-    }
-    
+
+    // Honeypot: ignore spam
+    if (formData.website) return;
+
     contactMutation.mutate(formData);
   };
 
@@ -64,13 +88,14 @@ export function ContactSection() {
         title: "Copied!",
         description: `${label} copied to clipboard.`,
       });
-    } catch (error) {
+    } catch {
       toast({
         title: "Error",
         description: "Failed to copy to clipboard.",
         variant: "destructive",
       });
     }
+    
   };
 
   return (
@@ -150,7 +175,7 @@ export function ContactSection() {
                 className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
                 data-testid="button-download-cv"
               >
-                <a href="/mukul-sachdeva-cv.pdf" download>
+                <a href="https://mukulr.edgeone.app/Mukul_Sachdeva_CV%20copy.pdf" download>
                   <Download className="h-4 w-4 mr-2" />
                   Download CV
                 </a>
@@ -242,5 +267,6 @@ export function ContactSection() {
         </div>
       </div>
     </section>
+    
   );
 }
