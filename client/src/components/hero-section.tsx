@@ -72,6 +72,13 @@ export function HeroSection() {
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-4">
               <Button
+                onClick={() => handleScrollToSection("projects")}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors duration-200"
+                data-testid="button-view-projects"
+              >
+                View Projects
+              </Button>
+              <Button
                 variant="outline"
                 asChild
                 className="px-8 py-3 rounded-lg font-medium"
