@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Lock } from "lucide-react";
 
 const projects = [
   {
@@ -11,11 +10,7 @@ const projects = [
       "Implemented dynamic routing in Next.js with optimized data fetching",
       "Achieved faster integrations and cleaner separation of concerns"
     ],
-    ownership: "Full-stack development",
-    links: {
-      live: "#",
-      github: "#"
-    }
+    ownership: "Full-stack development"
   },
   {
     title: "IQVIA Analytics",
@@ -26,10 +21,7 @@ const projects = [
       "Enhanced React UX and data visualization components",
       "Improved FE-BE communication and reduced response times"
     ],
-    ownership: "Backend APIs & Frontend UX",
-    links: {
-      private: true
-    }
+    ownership: "Backend APIs & Frontend UX"
   },
   {
     title: "PriOSS",
@@ -40,11 +32,7 @@ const projects = [
       "Built granular user data control and visualization",
       "Created transparent UX for multi-service data management"
     ],
-    ownership: "Privacy architecture & UX",
-    links: {
-      live: "#",
-      github: "#"
-    }
+    ownership: "Privacy architecture & UX"
   }
 ];
 
@@ -64,38 +52,8 @@ export function ProjectsSection() {
             <Card key={index} className="bg-card rounded-2xl shadow-lg hover-lift border border-border" data-testid={`card-project-${index}`}>
               <CardContent className="p-8">
                 <div className="mb-6">
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="mb-3">
                     <h3 className="text-2xl font-bold" data-testid={`text-project-title-${index}`}>{project.title}</h3>
-                    <div className="flex space-x-2">
-                      {project.links.private ? (
-                        <div className="text-muted-foreground">
-                          <Lock className="h-4 w-4" />
-                        </div>
-                      ) : (
-                        <>
-                          {project.links.live && (
-                            <a
-                              href={project.links.live}
-                              className="text-primary hover:text-primary/80 transition-colors"
-                              aria-label="View live demo"
-                              data-testid={`link-project-live-${index}`}
-                            >
-                              <ExternalLink className="h-4 w-4" />
-                            </a>
-                          )}
-                          {project.links.github && (
-                            <a
-                              href={project.links.github}
-                              className="text-muted-foreground hover:text-foreground transition-colors"
-                              aria-label="View source code"
-                              data-testid={`link-project-github-${index}`}
-                            >
-                              <Github className="h-4 w-4" />
-                            </a>
-                          )}
-                        </>
-                      )}
-                    </div>
                   </div>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
