@@ -18,7 +18,7 @@ const skillCategories = [
     title: "Databases",
     icon: Database,
     color: "primary",
-    skills: ["MySQL", "XML", "JSON"]
+    skills: ["MySQL", "XML", "JSON", "PostgreSQL", "SQLite"]
   },
   {
     title: "Cloud & DevOps",
