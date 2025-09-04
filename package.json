@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "scripts": {
+   "scripts": {
     "build": "vite build",
     "predeploy": "npm run build && cp dist/public/index.html dist/public/404.html",
     "deploy": "gh-pages -d dist/public --dotfiles"
