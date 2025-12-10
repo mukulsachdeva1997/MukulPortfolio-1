@@ -6,13 +6,13 @@ const skillCategories = [
     title: "Languages",
     icon: Code,
     color: "primary",
-    skills: ["JavaScript", "Python", "C#", "PHP", "Java", "C/C++"]
+    skills: ["JavaScript", "Typescript", "Python", "C#", "PHP", "Java", "C/C++"]
   },
   {
     title: "Web & Frameworks",
     icon: Laptop,
     color: "secondary",
-    skills: ["React", "Angular", "FastAPI", ".NET", "Flask", "Bootstrap"]
+    skills: ["React", "Angular", "FastAPI", ".NET", "Flask", "Bootstrap", "Next.js"]
   },
   {
     title: "Databases",
