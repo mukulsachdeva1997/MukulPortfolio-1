@@ -3,7 +3,7 @@ import { Globe, Heart, Dumbbell, Mountain, PenTool } from "lucide-react";
 
 const languages = [
   { name: "English", flag: "🇺🇸", level: "C1" },
-  { name: "German", flag: "🇩🇪", level: "A2" }
+  { name: "German", flag: "🇩🇪", level: "B1" }
 ];
 
 const interests = [

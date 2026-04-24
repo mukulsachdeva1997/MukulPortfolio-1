@@ -5,7 +5,7 @@ const education = [
   {
     degree: "M.Sc. Computer Science",
     institution: "Universität Paderborn",
-    period: "Apr 2022 – Present",
+    period: "Apr 2022 – June 2026 • Final Grade: 2.5",
     icon: GraduationCap,
     color: "primary",
     seminars: [
