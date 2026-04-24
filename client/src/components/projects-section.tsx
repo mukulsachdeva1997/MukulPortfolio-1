@@ -10,6 +10,22 @@ type ProjectType =
 
 const projects = [
   {
+  title: "Master’s Thesis: Open-Source Coopetition Analysis",
+  description:
+    "Research analytics project analyzing inter-firm collaboration and competitor interaction in the PyTorch open-source ecosystem.",
+  stack: ["Python", "GitHub API", "PyDriller", "NetworkX", "Pandas", "Open Source Analytics"],
+  highlights: [
+    "Built an end-to-end analytics workflow converting Git repository activity into firm-level collaboration networks",
+    "Developed reproducible logic for contributor identity resolution, organizational attribution, and repository scope classification",
+    "Applied network metrics and firm annotations to analyze collaboration intensity, structural roles, and competitor interaction",
+  ],
+  ownership:
+    "Research design, data mining pipeline, contributor attribution logic, network analysis, and thesis writing",
+  impact:
+    "Revealed how competing firms collaborate in open-source AI infrastructure, connecting software repository data with strategic ecosystem analysis",
+  category: "University project" as ProjectType,
+ },
+  {
     title: "DailiQ E-commerce",
     description: "Scalable Shopify integration powering modern e-commerce.",
     stack: ["Next.js", "FastAPI", "Shopify API", "PostgreSQL", "AWS"],
