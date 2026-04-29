@@ -125,7 +125,7 @@ export function HeroSection() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <img
-                src="https://mukul.edgeone.app/Screenshot%202025-08-29%20at%2021.32.19.png"
+                src="https://resumedp.edgeone.app/IMG_0599.jpeg"
                 alt="Mukul Sachdeva - Full-Stack Developer"
                 className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-2xl shadow-2xl animate-float"
                 data-testid="img-profile"
