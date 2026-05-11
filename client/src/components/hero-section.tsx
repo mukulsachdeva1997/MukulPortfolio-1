@@ -101,7 +101,7 @@ export function HeroSection() {
                 className="px-8 py-3 rounded-lg font-medium"
                 data-testid="button-download-cv"
               >
-                <a href="https://odd-magenta-i4nyn7f3yw.edgeone.app/" download>
+                <a href="https://optimistic-jade-ehra9dpgjm.edgeone.app/" download>
                   Download CV
                 </a>
               </Button>
