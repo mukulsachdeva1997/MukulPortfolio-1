@@ -41,7 +41,7 @@ const projects = [
   impact:
     "Helped roommates coordinate chores, track accountability, and reduce friction in shared households",
   category: "Personal project" as ProjectType,
-  demoUrl: "https://mukulsachdeva1997.github.io/tidy-team-app/",
+  demoUrl: "https://tidy-team-c729a.web.app",
 },
   {
   title: "Master’s Thesis: Open-Source Coopetition Analysis",
@@ -102,6 +102,7 @@ const projects = [
     impact:
       "Created a scalable compliance-first model, strengthening user trust across industries",
     category: "University project" as ProjectType,
+    demoUrl: "https://prioss.cs.uni-paderborn.de"
   }
 ];
 
