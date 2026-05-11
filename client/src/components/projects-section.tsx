@@ -10,6 +10,40 @@ type ProjectType =
 
 const projects = [
   {
+  title: "KnowYourRights – AI-Powered Legal Rights Guidebook",
+  description:
+    "Mobile-first legal rights platform helping international students and immigrants in Germany understand visa, housing, work, police, health, education, and consumer-rights scenarios.",
+  stack: ["React", "TypeScript", "Vite", "Tailwind", "shadcn/ui", "React Router", "Ollama", "GitHub Actions"],
+  highlights: [
+    "Built searchable FAQs, topic explainers, bookmarks, Rights Navigator, and official source-backed guidance",
+    "Integrated a local Ollama helper to analyze German letters, detect risk levels, and generate English/German summaries",
+    "Added report-issue flow and GitHub Actions automation to keep legal content scalable and maintainable",
+  ],
+  ownership:
+    "Frontend architecture, AI document helper, reusable components, content structure, automation, and deployment",
+  impact:
+    "Made German legal and administrative guidance easier to understand through accessible, privacy-first support",
+  category: "Personal project" as ProjectType,
+  demoUrl: "https://mukulsachdeva1997.github.io/KnowYourRights/",
+},
+{
+  title: "Tidy Team – Real-Time Household Productivity App",
+  description:
+    "Gamified household chore coordination app for roommates with real-time sync, rotating assignments, scoring, and monthly accountability features.",
+  stack: ["HTML", "CSS", "JavaScript", "Firebase Auth", "Firestore", "Firebase Hosting", "PWA"],
+  highlights: [
+    "Built real-time chore tracking with Firebase Auth, Firestore sync, invite links, rotations, scoring, and snoozing",
+    "Implemented secure Firestore rules, PWA support, light/dark UI, WhatsApp nudges, and monthly reports",
+    "Designed playful accountability features including treat penalties, bilingual roasts, and RPS tie-breakers",
+  ],
+  ownership:
+    "Frontend implementation, Firebase setup, Firestore data model, security rules, PWA setup, and documentation",
+  impact:
+    "Helped roommates coordinate chores, track accountability, and reduce friction in shared households",
+  category: "Personal project" as ProjectType,
+  demoUrl: "https://mukulsachdeva1997.github.io/tidy-team-app/",
+},
+  {
   title: "Master’s Thesis: Open-Source Coopetition Analysis",
   description:
     "Research analytics project analyzing inter-firm collaboration and competitor interaction in the PyTorch open-source ecosystem.",
@@ -68,23 +102,6 @@ const projects = [
     impact:
       "Created a scalable compliance-first model, strengthening user trust across industries",
     category: "University project" as ProjectType,
-  },
-  {
-    title: "Civic Guidebook (KnowYourRights)",
-    description:
-      "Mobile-first legal rights guide helping students and immigrants in Germany understand their everyday rights.",
-    stack: ["React", "TypeScript", "Vite", "Tailwind", "shadcn/ui", "React Router"],
-    highlights: [
-      "Designed searchable FAQs and topic explorers covering housing, work, health, and police rights",
-      "Built responsive step-by-step explainers with dual legal vs practical guidance for better accessibility",
-      "Structured content into reusable data-driven FAQs and explainer modules, making it easy to scale and maintain across multiple legal topics",
-    ],
-    ownership:
-      "Frontend architecture, reusable component system, data modeling for FAQs/Explainers, deployment pipeline",
-    impact:
-      "Enabled newcomers to quickly access trusted information on German rights, boosting user confidence and accessibility",
-    category: "Personal project" as ProjectType,
-    demoUrl: "https://mukulsachdeva1997.github.io/KnowYourRights/", 
   }
 ];
 
