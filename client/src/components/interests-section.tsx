@@ -1,43 +1,70 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import { ChevronLeft, ChevronRight, Heart, Mountain, Dumbbell, PenTool } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-// Sample interest images - using representative photos from Unsplash
-const interestImages = [
+// Drop a photo at client/src/assets/interests/<id>.{png,jpg,jpeg,webp}
+// (id matches the `id` field below, e.g. trekking.jpg) and it appears
+// automatically — no code change needed. Interests without a file fall
+// back to a gradient + icon placeholder.
+const photoModules = import.meta.glob<{ default: string }>(
+  "../assets/interests/*.{png,jpg,jpeg,webp}",
+  { eager: true }
+);
+
+function getPhoto(id: string): string | undefined {
+  for (const path in photoModules) {
+    const filename = path.split("/").pop()?.replace(/\.[^.]+$/, "");
+    if (filename === id) return photoModules[path].default;
+  }
+  return undefined;
+}
+
+const interests = [
   {
-    id: 1,
+    id: "trekking",
     title: "Mountain Trekking",
     description: "Exploring nature trails and mountain paths",
-    image: "https://mukuli.edgeone.app/Screenshot%202025-08-29%20at%2022.33.59.png"
+    icon: Mountain,
+    frameHeight: "h-[380px] lg:h-[640px]",
+    objectPosition: "65% 25%",
   },
   {
-    id: 2,
+    id: "fitness",
     title: "Fitness & Training",
     description: "Staying active through regular workouts and strength training",
-    image: "https://written-amethyst-e9mw61snwq.edgeone.app/Screenshot%202025-08-29%20at%2022.44.02.png"
+    icon: Dumbbell,
+    frameHeight: "h-[480px] lg:h-[640px]",
+    objectPosition: "center 55%",
   },
-  
   {
-    id: 3,
+    id: "sketching",
     title: "Sketching & Art",
     description: "Creating artistic sketches and drawings in spare time",
-    image: "https://unchanged-red-rh67hckppp.edgeone.app/Screenshot%202025-08-29%20at%2022.54.16.png"
+    icon: PenTool,
+    // this is a tall portrait photo, so cover-cropping it at the default
+    // frame height clips the top and bottom — a taller frame needs less
+    // crop to fill, so more of it shows while still filling edge to edge
+    frameHeight: "h-[480px] lg:h-[640px]",
+    objectPosition: "center 80%",
   },
 ];
 
 export function InterestsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const current = interests[currentIndex];
+  const currentPhoto = getPhoto(current.id);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === interestImages.length - 1 ? 0 : prevIndex + 1
+    setCurrentIndex((prevIndex) =>
+      prevIndex === interests.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? interestImages.length - 1 : prevIndex - 1
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? interests.length - 1 : prevIndex - 1
     );
   };
 
@@ -63,22 +90,37 @@ export function InterestsSection() {
             <CardContent className="p-0">
               <div className="relative">
               {/* Main Carousel Image */}
-              <div className="relative h-96 lg:h-[500px] overflow-hidden">
-                <img
-                  src={interestImages[currentIndex].image}
-                  alt={interestImages[currentIndex].title}
-                  className="w-full h-full object-cover transition-opacity duration-500"
-                  data-testid={`img-interest-${currentIndex}`}
-                />
+              <div
+                className={cn(
+                  "relative overflow-hidden transition-all duration-500 ease-in-out",
+                  current.frameHeight ?? "h-96 lg:h-[500px]"
+                )}
+              >
+                {currentPhoto ? (
+                  <img
+                    src={currentPhoto}
+                    alt={current.title}
+                    style={current.objectPosition ? { objectPosition: current.objectPosition } : undefined}
+                    className="w-full h-full object-cover transition-opacity duration-500"
+                    data-testid={`img-interest-${currentIndex}`}
+                  />
+                ) : (
+                  <div
+                    className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-secondary"
+                    data-testid={`img-interest-${currentIndex}`}
+                  >
+                    <current.icon className="h-24 w-24 text-white/90" strokeWidth={1.25} />
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pl-[0px] pr-[0px]" />
-                
+
                 {/* Content Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                   <h3 className="text-2xl lg:text-3xl font-bold mb-2" data-testid={`text-interest-title-${currentIndex}`}>
-                    {interestImages[currentIndex].title}
+                    {current.title}
                   </h3>
                   <p className="text-lg opacity-90" data-testid={`text-interest-description-${currentIndex}`}>
-                    {interestImages[currentIndex].description}
+                    {current.description}
                   </p>
                 </div>
               </div>
@@ -94,7 +136,7 @@ export function InterestsSection() {
               >
                 <ChevronLeft className="h-6 w-6" />
               </Button>
-              
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -110,35 +152,44 @@ export function InterestsSection() {
             {/* Thumbnail Navigation */}
             <div className="p-6 bg-muted/30">
               <div className="flex justify-center space-x-4 overflow-x-auto pb-2">
-                {interestImages.map((image, index) => (
-                  <button
-                    key={image.id}
-                    onClick={() => goToSlide(index)}
-                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
-                      index === currentIndex 
-                        ? 'border-primary shadow-lg scale-105' 
-                        : 'border-border hover:border-primary/50'
-                    }`}
-                    data-testid={`thumbnail-${index}`}
-                  >
-                    <img
-                      src={image.image}
-                      alt={image.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
+                {interests.map((interest, index) => {
+                  const thumbPhoto = getPhoto(interest.id);
+                  return (
+                    <button
+                      key={interest.id}
+                      onClick={() => goToSlide(index)}
+                      className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                        index === currentIndex
+                          ? 'border-primary shadow-lg scale-105'
+                          : 'border-border hover:border-primary/50'
+                      }`}
+                      data-testid={`thumbnail-${index}`}
+                    >
+                      {thumbPhoto ? (
+                        <img
+                          src={thumbPhoto}
+                          alt={interest.title}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
+                          <interest.icon className="h-7 w-7 text-white/90" strokeWidth={1.25} />
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
-              
+
               {/* Dot Indicators */}
               <div className="flex justify-center space-x-2 mt-4">
-                {interestImages.map((_, index) => (
+                {interests.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                      index === currentIndex 
-                        ? 'bg-primary' 
+                      index === currentIndex
+                        ? 'bg-primary'
                         : 'bg-border hover:bg-primary/50'
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
@@ -154,7 +205,7 @@ export function InterestsSection() {
         {/* Auto-play indicator */}
         <div className="text-center mt-6">
           <p className="text-sm text-muted-foreground">
-            Use arrows or thumbnails to navigate • {currentIndex + 1} of {interestImages.length}
+            Use arrows or thumbnails to navigate • {currentIndex + 1} of {interests.length}
           </p>
         </div>
       </div>

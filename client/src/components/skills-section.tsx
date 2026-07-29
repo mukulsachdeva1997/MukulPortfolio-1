@@ -49,14 +49,12 @@ export function SkillsSection() {
                     <IconComponent className={`h-5 w-5 mr-3 ${category.color === 'primary' ? 'text-primary' : 'text-secondary'}`} />
                     {category.title}
                   </h3>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-x-3 gap-y-2">
                     {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className={`px-3 py-1 rounded-full text-sm ${
-                          category.color === 'primary'
-                            ? 'bg-primary/10 text-primary'
-                            : 'bg-secondary/10 text-secondary'
+                        className={`text-sm ${
+                          category.color === 'primary' ? 'text-primary' : 'text-secondary'
                         }`}
                         data-testid={`tag-skill-${index}-${skillIndex}`}
                       >

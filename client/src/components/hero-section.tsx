@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
+// Drop your headshot at client/src/assets/profile.jpg — Vite will bundle it,
+// so it loads from your own domain instead of a third-party host.
+import profilePhoto from "@/assets/profile.jpg";
 
 export function HeroSection() {
   const handleScrollToSection = (sectionId: string) => {
@@ -27,7 +30,7 @@ export function HeroSection() {
                 </div>
                 <div data-testid="stat-technologies">
                   <span className="text-2xl font-bold text-secondary">8+</span>
-                  <p className="text-xs">Technologies mastered</p>
+                  <p className="text-xs">Technologies used</p>
                 </div>
               </div>
             </div>
@@ -41,11 +44,10 @@ export function HeroSection() {
                   <Typewriter
                     words={[
                       "Full-Stack Developer",
-                      "Frontend Engineer (React & Angular)",
-                      "Backend Developer (FastAPI / .NET)",
-                      "Cloud & API Integration Specialist",
-                      "Scalable Web Application Engineer",
-                      "Data-Driven Solution Builder",
+                      "Masters in Computer Science",
+                      "React & Angular Developer",
+                      "FastAPI & .NET Backend Developer",
+                      "Still learning, still building",
                     ]}
                     loop={true}
                     cursor
@@ -58,7 +60,7 @@ export function HeroSection() {
               </h1>
 
               <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed pt-[15px] pb-[15px]">
-                I design and ship reliable, performant web apps end-to-end, from crisp UIs to robust APIs: using React/Angular, FastAPI/.NET, and AWS.
+                I build full-stack web apps end to end, from the interface someone actually clicks on to the API and database behind it. Most of what's here started because I wanted to build it, not because someone assigned it to me.
               </p>
             </div>
 
@@ -101,7 +103,8 @@ export function HeroSection() {
                 className="px-8 py-3 rounded-lg font-medium"
                 data-testid="button-download-cv"
               >
-                <a href="https://optimistic-jade-ehra9dpgjm.edgeone.app/" download>
+                {/* Drop your CV PDF at client/public/Mukul_Sachdeva_CV.pdf */}
+                <a href="/Mukul_Sachdeva_CV.pdf" download>
                   Download CV
                 </a>
               </Button>
@@ -123,14 +126,15 @@ export function HeroSection() {
 
           {/* Professional photo */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative">
+            <div className="relative animate-float">
               <img
-                src="https://resumedp.edgeone.app/IMG_0599.jpeg"
+                src={profilePhoto}
                 alt="Mukul Sachdeva - Full-Stack Developer"
-                className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-2xl shadow-2xl animate-float"
+                style={{ objectPosition: "50% 30%" }}
+                className="relative w-80 h-80 lg:w-96 lg:h-96 object-cover object-top rounded-full shadow-2xl"
                 data-testid="img-profile"
               />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/20 to-secondary/20"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-secondary/20"></div>
             </div>
           </div>
         </div>

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "@/hooks/use-theme";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
   { href: "#about", label: "About" },
@@ -95,6 +96,19 @@ export function Navigation() {
             </div>
 
             <div className="flex items-center space-x-4">
+              <button
+                onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
+                className="hidden sm:inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground border border-border rounded-md px-3 py-1.5 transition-colors duration-200"
+                aria-label="Open command palette"
+                data-testid="button-command-palette"
+              >
+                <Search className="h-3.5 w-3.5" />
+                <span>Search</span>
+                <kbd className="ml-1 text-xs bg-muted px-1.5 py-0.5 rounded border border-border">
+                  ⌘K
+                </kbd>
+              </button>
+
               <Button
                 variant="ghost"
                 size="icon"

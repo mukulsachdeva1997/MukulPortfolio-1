@@ -175,7 +175,8 @@ export function ContactSection() {
                 className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
                 data-testid="button-download-cv"
               >
-                <a href="https://msresume12.edgeone.app/MS_Resume%20(1).pdf" download>
+                {/* Drop your CV PDF at client/public/Mukul_Sachdeva_CV.pdf */}
+                <a href="/Mukul_Sachdeva_CV.pdf" download>
                   <Download className="h-4 w-4 mr-2" />
                   Download CV
                 </a>

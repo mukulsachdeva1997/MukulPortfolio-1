@@ -1,35 +1,52 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
-const experiences = [
+interface Job {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  color: "primary" | "secondary";
+  stack: string[];
+  highlights: string[];
+  reference?: {
+    quote: string;
+    author: string;
+    title: string;
+  };
+}
+
+const experience: Job[] = [
   {
-    title: "Full-Stack Developer",
+    role: "Full Stack Developer",
     company: "Lasken GmbH",
+    location: "Paderborn, Germany",
     period: "Dec 2024 – May 2025",
-    technologies: ["React", "Angular", "Python", "C#", "AWS"],
+    color: "primary" as const,
+    stack: ["React", "Angular", "Python Flask", "C# .NET", "MySQL", "Docker", "AWS"],
     highlights: [
-      "Developed React/Angular front-ends with performance tuning and responsive UI/UX",
-      "Built custom APIs in Python (Flask) and C# (.NET) with MySQL integration",
-      "Collaborated cross-functionally using GitHub, Docker, AWS for secure delivery"
-    ]
+      "Delivered a client engagement for IQVIA's data-driven analytics platform — built and maintained custom REST API endpoints in C# and .NET, using GitHub Copilot to keep implementation fast and consistent.",
+      "Improved React-based analytics dashboards and frontend-backend communication, speeding up feature delivery and response times.",
+      "Built responsive React and Angular interfaces and supported deployment workflows with GitHub, Docker, and AWS.",
+    ],
+    reference: {
+      quote:
+        "He consistently showed a proactive approach to problem-solving, was quick to grasp complex tasks, and often went beyond his scope to ensure project success.",
+      author: "Dirk Schmitfranz",
+      title: "Former CTO, Lasken GmbH",
+    },
   },
   {
-    title: "Data Science Training",
-    company: "Industrial Training",
-    period: "Jun 2019 – Dec 2019",
-    technologies: ["Python", "Machine Learning", "Healthcare"],
+    role: "Software Engineer Intern",
+    company: "ANSH InfoTech",
+    location: "Ludhiana, Punjab, India",
+    period: "Jun 2020 – Dec 2021",
+    color: "secondary" as const,
+    stack: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL", "Python", "Machine Learning", "SQL"],
     highlights: [
-      "Built predictive disease diagnosis models in Python for early detection from symptoms"
-    ]
+      "Completed hands-on industrial training spanning web development and data science, building practical software and machine learning prototypes from scratch.",
+      "Built a full restaurant ordering website end-to-end — from UI to database — using HTML, CSS, JavaScript, Bootstrap, PHP, and MySQL.",
+    ],
   },
-  {
-    title: "Web Development Training",
-    company: "Industrial Training", 
-    period: "Jun 2018 – Jul 2018",
-    technologies: ["HTML/CSS", "JavaScript", "PHP", "MySQL"],
-    highlights: [
-      "Developed full restaurant website with menu and online ordering system using HTML/CSS/JS/Bootstrap + PHP/MySQL/JSON"
-    ]
-  }
 ];
 
 export function ExperienceSection() {
@@ -39,51 +56,105 @@ export function ExperienceSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">Experience</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Building solutions across the full stack with focus on performance, security, and collaboration.
+            Professional roles where I've shipped production code across the stack.
           </p>
         </div>
 
-        <div className="space-y-8">
-          {experiences.map((experience, index) => (
-            <Card key={index} className="bg-card rounded-2xl shadow-lg border border-border" data-testid={`card-experience-${index}`}>
-              <CardContent className="p-8">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2" data-testid={`text-experience-title-${index}`}>
-                      {experience.title}
-                    </h3>
-                    <p className="text-xl text-primary mb-2" data-testid={`text-experience-company-${index}`}>
-                      {experience.company}
-                    </p>
-                    <p className="text-muted-foreground" data-testid={`text-experience-period-${index}`}>
-                      {experience.period}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-4 lg:mt-0">
-                    {experience.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
-                        data-testid={`tag-experience-tech-${index}-${techIndex}`}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+        <div className="max-w-3xl mx-auto relative pl-8">
+          {/* connecting track with a soft pulse continuously traveling down it */}
+          <div className="absolute left-[3px] top-2.5 bottom-2.5 w-0.5 bg-border rounded-full overflow-hidden">
+            <div
+              className="absolute -left-[3px] w-2 h-[70px] rounded-sm animate-exp-travel"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, var(--primary), var(--secondary), transparent)",
+              }}
+            />
+          </div>
 
-                <div className="space-y-3">
-                  {experience.highlights.map((highlight, highlightIndex) => (
-                    <div key={highlightIndex} className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <p data-testid={`text-experience-highlight-${index}-${highlightIndex}`}>
-                        {highlight}
-                      </p>
-                    </div>
+          {experience.map((job, index) => (
+            <div
+              key={index}
+              className={cn("relative", index < experience.length - 1 && "mb-10")}
+              data-testid={`card-experience-${index}`}
+            >
+              <div
+                className={cn(
+                  "absolute -left-8 top-1.5 w-3.5 h-3.5 rounded-full bg-card border-2 z-10",
+                  "after:content-[''] after:absolute after:-inset-1.5 after:rounded-full after:border after:animate-exp-ripple",
+                  job.color === "primary"
+                    ? "border-primary after:border-primary"
+                    : "border-secondary after:border-secondary",
+                  index === 1 && "after:[animation-delay:0.9s]"
+                )}
+              />
+
+              <div className="bg-card border border-border rounded-2xl p-6 sm:p-8">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold" data-testid={`text-experience-role-${index}`}>
+                    {job.role}
+                  </h3>
+                  <span
+                    className="font-mono text-xs text-muted-foreground whitespace-nowrap"
+                    data-testid={`text-experience-period-${index}`}
+                  >
+                    {job.period}
+                  </span>
+                </div>
+                <p
+                  className={cn("text-lg mb-1", job.color === "primary" ? "text-primary" : "text-secondary")}
+                  data-testid={`text-experience-company-${index}`}
+                >
+                  {job.company}
+                </p>
+                <p className="text-sm text-muted-foreground mb-5">{job.location}</p>
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {job.stack.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="font-mono text-xs bg-muted text-foreground px-2.5 py-1 rounded-full"
+                      data-testid={`tag-experience-stack-${index}-${techIndex}`}
+                    >
+                      {tech}
+                    </span>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+
+                <ul className="space-y-2">
+                  {job.highlights.map((highlight, highlightIndex) => (
+                    <li key={highlightIndex} className="flex gap-2 leading-relaxed">
+                      <span
+                        className={cn(
+                          "font-bold flex-shrink-0",
+                          job.color === "primary" ? "text-primary" : "text-secondary"
+                        )}
+                      >
+                        ›
+                      </span>
+                      <span data-testid={`text-experience-highlight-${index}-${highlightIndex}`}>
+                        {highlight}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {job.reference && (
+                  <blockquote
+                    className="mt-5 pt-5 border-t border-border"
+                    data-testid={`quote-experience-reference-${index}`}
+                  >
+                    <p className="italic text-muted-foreground leading-relaxed">
+                      "{job.reference.quote}"
+                    </p>
+                    <footer className="mt-2 text-sm">
+                      <span className="font-medium">{job.reference.author}</span>
+                      <span className="text-muted-foreground"> · {job.reference.title}</span>
+                    </footer>
+                  </blockquote>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -8,6 +8,7 @@ const education = [
     period: "Apr 2022 – June 2026 • Final Grade: 2.5",
     icon: GraduationCap,
     color: "primary",
+    transcriptUrl: "/Mukul_Sachdeva_Transcript.pdf",
     seminars: [
       "Novel Approaches of Requirements Elicitation, Reuse and Evolution",
       "Advancements in Parallelising Static Program Analyses: A Comprehensive Overview"
@@ -89,6 +90,20 @@ export function EducationSection() {
                       </>
                     )}
                   </div>
+
+                  {edu.transcriptUrl && (
+                    <a
+                      href={edu.transcriptUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-block mt-5 text-sm font-medium hover:underline ${
+                        edu.color === "primary" ? "text-primary" : "text-secondary"
+                      }`}
+                      data-testid={`link-education-transcript-${index}`}
+                    >
+                      View official transcript ↗
+                    </a>
+                  )}
                 </CardContent>
               </Card>
             );

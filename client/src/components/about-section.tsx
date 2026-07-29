@@ -24,21 +24,24 @@ export function AboutSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">About Me</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Passionate about crafting digital experiences that make a difference.
+            A bit about how I got here, how I like to build things, and what keeps me busy outside of it.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg leading-relaxed" data-testid="text-about-intro">
-              I'm a full-stack developer who thrives at the intersection of front-end craft and backend architecture. 
-              My expertise spans from creating intuitive user interfaces to designing robust APIs and managing complex data integrations.
+              I'm currently finishing my M.Sc. in Computer Science at Universität Paderborn, and I like working across
+              the whole stack rather than staying in one lane — from the interface someone actually clicks on, to the
+              API and database behind it. Most of what I know has come from building real things: React and Angular
+              interfaces, C#/.NET and Python APIs, and the deployment and data-handling work that ties it all together.
             </p>
 
             <p className="text-lg leading-relaxed" data-testid="text-about-philosophy">
-              With a privacy-aware mindset shaped by my work on GDPR-compliant systems, I believe in building technology 
-              that respects user privacy while delivering exceptional experiences. I approach every project with attention 
-              to performance, security, and maintainability.
+              Working on a data-driven analytics platform at Lasken GmbH gave me a practical look at what
+              privacy-aware engineering actually involves — decisions about how data is stored, moved, and exposed,
+              not just the principle of it. That's still shaping how I approach new projects: thinking about security
+              and maintainability early, rather than bolting them on at the end.
             </p>
 
             <Card className="bg-card rounded-lg border border-border">
