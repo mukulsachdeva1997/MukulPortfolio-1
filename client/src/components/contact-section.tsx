@@ -176,7 +176,7 @@ export function ContactSection() {
                 data-testid="button-download-cv"
               >
                 {/* Drop your CV PDF at client/public/Mukul_Sachdeva_CV.pdf */}
-                <a href="/Mukul_Sachdeva_CV.pdf" download>
+                <a href={`${import.meta.env.BASE_URL}Mukul_Sachdeva_CV.pdf`} download>
                   <Download className="h-4 w-4 mr-2" />
                   Download CV
                 </a>

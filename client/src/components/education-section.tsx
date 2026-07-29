@@ -8,7 +8,7 @@ const education = [
     period: "Apr 2022 – June 2026 • Final Grade: 2.5",
     icon: GraduationCap,
     color: "primary",
-    transcriptUrl: "/Mukul_Sachdeva_Transcript.pdf",
+    transcriptUrl: `${import.meta.env.BASE_URL}Mukul_Sachdeva_Transcript.pdf`,
     seminars: [
       "Novel Approaches of Requirements Elicitation, Reuse and Evolution",
       "Advancements in Parallelising Static Program Analyses: A Comprehensive Overview"

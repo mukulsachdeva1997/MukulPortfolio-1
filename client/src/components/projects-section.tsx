@@ -111,7 +111,7 @@ export const projects: Project[] = [
     impact:
       "Revealed how competing firms collaborate in open-source AI infrastructure, connecting software repository data with strategic ecosystem analysis",
     category: "University project",
-    resourceUrl: "/Mukul_Sachdeva_Thesis.pdf",
+    resourceUrl: `${import.meta.env.BASE_URL}Mukul_Sachdeva_Thesis.pdf`,
     resourceLabel: "read thesis",
   },
   {

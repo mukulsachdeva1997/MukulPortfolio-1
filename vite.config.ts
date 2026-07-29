@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/MukulPortfolio-1",
+  base: "/MukulPortfolio-1/",
   plugins: [react()],
   resolve: {
     alias: {
