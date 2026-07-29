@@ -32,14 +32,14 @@ export function AboutSection() {
           <div className="space-y-6">
             <p className="text-lg leading-relaxed" data-testid="text-about-intro">
               I'm currently finishing my M.Sc. in Computer Science at Universität Paderborn, and I like working across
-              the whole stack rather than staying in one lane — from the interface someone actually clicks on, to the
+              the whole stack rather than staying in one lane, from the interface someone actually clicks on to the
               API and database behind it. Most of what I know has come from building real things: React and Angular
               interfaces, C#/.NET and Python APIs, and the deployment and data-handling work that ties it all together.
             </p>
 
             <p className="text-lg leading-relaxed" data-testid="text-about-philosophy">
               Working on a data-driven analytics platform at Lasken GmbH gave me a practical look at what
-              privacy-aware engineering actually involves — decisions about how data is stored, moved, and exposed,
+              privacy-aware engineering actually involves: decisions about how data is stored, moved, and exposed,
               not just the principle of it. That's still shaping how I approach new projects: thinking about security
               and maintainability early, rather than bolting them on at the end.
             </p>

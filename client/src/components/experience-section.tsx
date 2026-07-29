@@ -24,7 +24,7 @@ const experience: Job[] = [
     color: "primary" as const,
     stack: ["React", "Angular", "Python Flask", "C# .NET", "MySQL", "Docker", "AWS"],
     highlights: [
-      "Delivered a client engagement for IQVIA's data-driven analytics platform — built and maintained custom REST API endpoints in C# and .NET, using GitHub Copilot to keep implementation fast and consistent.",
+      "Delivered a client engagement for IQVIA's data-driven analytics platform, building and maintaining custom REST API endpoints in C# and .NET, using GitHub Copilot to keep implementation fast and consistent.",
       "Improved React-based analytics dashboards and frontend-backend communication, speeding up feature delivery and response times.",
       "Built responsive React and Angular interfaces and supported deployment workflows with GitHub, Docker, and AWS.",
     ],
@@ -44,7 +44,7 @@ const experience: Job[] = [
     stack: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL", "Python", "Machine Learning", "SQL"],
     highlights: [
       "Completed hands-on industrial training spanning web development and data science, building practical software and machine learning prototypes from scratch.",
-      "Built a full restaurant ordering website end-to-end — from UI to database — using HTML, CSS, JavaScript, Bootstrap, PHP, and MySQL.",
+      "Built a full restaurant ordering website end to end, from UI to database, using HTML, CSS, JavaScript, Bootstrap, PHP, and MySQL.",
     ],
   },
 ];
