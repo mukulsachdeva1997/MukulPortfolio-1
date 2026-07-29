@@ -32,7 +32,7 @@ export function ContactSection() {
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
 
       if (!serviceId || !templateId || !publicKey) {
-        throw new Error("Missing VITE_EMAILJS_* env vars. Check .env / Replit Secrets and restart the dev server.");
+        throw new Error("Missing VITE_EMAILJS_* env vars. Check .env and restart the dev server.");
       }
 
       const templateParams = {
